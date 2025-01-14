@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Brand - Astrum Market{% endblock %}
+
+{% block content %}
+<main class="create-brand-page">
+    <div class="content-container animate-slide-up">
+        <h1 class="page-title">Create New Brand</h1>
+        <form method="POST" enctype="multipart/form-data" class="form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="brand-name" class="form-label">Brand Name:</label>
+                <input type="text" id="brand-name" name="name" required class="form-input" placeholder="Enter brand name">
+            </div>
+            <div class="form-group">
+                <label for="brand-description" class="form-label">Description:</label>
+                <textarea id="brand-description" name="description" required class="form-input" placeholder="Enter brand description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="brand-logo" class="form-label">Brand Logo:</label>
+                <input type="file" id="brand-logo" name="image" accept="image/*" required class="form-input">
+            </div>
+            <button type="submit" class="submit-button">Create Brand</button>
+        </form>
+    </div>
+</main>
+{% endblock %}

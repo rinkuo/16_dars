@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Category - Astrum Market{% endblock %}
+
+{% block content %}
+<main>
+    <div class="content-container animate-slide-up">
+        <h1 class="page-title">Create New Category</h1>
+        <form id="category-form" class="form" method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="category-name" class="form-label">Category Name:</label>
+                <input type="text" id="category-name" name="name" required class="form-input">
+            </div>
+
+            <div class="form-group">
+                <label for="category-description" class="form-label">Description:</label>
+                <textarea id="category-description" name="description" required class="form-input"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="parent-category" class="form-label">Parent Category (optional):</label>
+                <select id="parent-category" name="parent-category" class="form-input">
+                    <option value="">None</option>
+                    <option value="category1">Electronics</option>
+                    <option value="category2">Clothing</option>
+                    <option value="category3">Home & Garden</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submit-button">Create Category</button>
+        </form>
+    </div>
+</main>
+{% endblock %}
